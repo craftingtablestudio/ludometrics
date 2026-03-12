@@ -1,2 +1,9 @@
 # ludometrics
-Machine learning models that predict board game success from board game data
+
+Predicts board game success from BoardGameGeek data using machine learning.
+
+## Setup
+
+```sh
+uv sync
+```
