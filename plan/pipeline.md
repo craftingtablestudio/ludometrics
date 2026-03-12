@@ -14,14 +14,14 @@ Two target labels computed during pre-processing; two models trained independent
 
 | Score              | Formula                                                            | Range     |
 | ------------------ | ------------------------------------------------------------------ | --------- |
-| `quality_score`    | `BayesAvgRating / 10`                                              | 0.36–0.85 |
+| `quality_score`    | `BayesAvgRating / 10`                                              | 0–1       |
 | `commercial_score` | `log1p(NumOwned / clamp(2025 − YearPublished, 1, 10))`, norm. 0–1 | 0–1       |
 
 See [preprocessing.ipynb](../preprocessing.ipynb) for full implementation details.
 
 ## 2. Prediction Training
 
-Inputs: 157 mechanic columns + 217 theme columns + 10 subcategory columns + 8 category columns + continuous features (complexity, 3× playtime, min/max players, recommended age).
+Inputs: 157 mechanic columns + 217 theme columns + 10 subcategory columns + 8 category columns + continuous features (complexity, 3× playtime, min/max players, manufacturer + community recommended age).
 
 Targets: `quality_score` and `commercial_score` — each trained as an independent model on the same feature set; the interface always reports both side by side.
 
