@@ -17,7 +17,7 @@ Two target labels computed during pre-processing; two models trained independent
 | `quality_score`    | `BayesAvgRating / 10`                                              | 0.36–0.85 |
 | `commercial_score` | `log1p(NumOwned / clamp(2025 − YearPublished, 1, 10))`, norm. 0–1 | 0–1       |
 
-See [pre-processing details](pre-processing%20details.md) for more details.
+See [preprocessing.ipynb](../preprocessing.ipynb) for full implementation details.
 
 ## 2. Prediction Training
 

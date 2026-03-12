@@ -28,7 +28,6 @@ The *chance of succeeding* is split into two independent scores:
 ## Plan
 
 - [Pipeline](plan/pipeline.md)
-- [Pre-processing details](plan/pre-processing%20details.md)
 
 ## Scripts
 
@@ -48,7 +47,14 @@ Loads the four source CSVs, applies all pre-processing, computes the two target 
 **Output:** `data/games_processed.csv`
 
 ```sh
+# open in notebook UI
 uv run euporie-notebook preprocessing.ipynb
+
+# run headless in cli
+uv run jupyter execute preprocessing.ipynb
+
+# run headless in cli — save results
+uv run jupyter nbconvert --to notebook --execute --inplace preprocessing.ipynb
 ```
 
 ### verify_bayes_avg.py
