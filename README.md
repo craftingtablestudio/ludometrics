@@ -4,12 +4,13 @@
 
 # ludometrics 🎲
 
-Predicts board game success from BoardGameGeek data using machine learning.
+Machine learning models that predict board game success from board game data
 
 ## Preamble
 
 Based on a [dataset](https://www.kaggle.com/datasets/threnjen/board-games-database-from-boardgamegeek) of 22k board games. I plan to predict the *chance of succeeding* a board game has based on its *feature profile*.
-I plan to also categorise the data based on *development viability* for developing said board game for an mixed reality platform like the Apple Vision Pro, to achieve the end goal of determining what kind of board game to build for highest chance of success on that platform.
+
+A secondary *development viability* score — computed on demand from mechanic and theme clusters — estimates how feasible a game concept is to build on a mixed reality platform like Apple Vision Pro. The end goal is a tool that helps determine what kind of board game to build for the highest chance of success on that platform.
 
 A _feature profile_ consists of: mechanics, complexity, categories & subcategories, themes, playtime (manufacturer stated + community min/max), min/max players, and recommended age.
 
@@ -59,3 +60,12 @@ Fits and validates the BGG Bayesian average formula (`BayesAvg = (C×m + N×AvgR
 ```sh
 uv run verify_bayes_avg.py
 ```
+
+## TODO
+
+- [x] Verify BGG Bayesian average formula (`verify_bayes_avg.py`)
+- [x] Pre-process dataset (`preprocessing.ipynb`)
+- [ ] Train prediction models (`quality_score`, `commercial_score`)
+- [ ] Cluster mechanics and themes (Louvain / k-means)
+- [ ] Label mechanics and themes with development viability weights
+- [ ] Build HTML interface
