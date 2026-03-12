@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/ludometrics_logo.png" alt="ludometrics" width="300" />
+</p>
+
 # ludometrics 🎲
 
 Predicts board game success from BoardGameGeek data using machine learning.
