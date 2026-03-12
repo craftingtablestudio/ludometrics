@@ -1,19 +1,3 @@
-Based on a [dataset](https://www.kaggle.com/datasets/threnjen/board-games-database-from-boardgamegeek) of 22k board games. I plan to predict the *chance of succeeding* a board game has based on its *feature profile*.
-I plan to also categorise the data based on *development viability* for developing said board game for an mixed reality platform like the Apple Vision Pro, to achieve the end goal of determining what kind of board game to build for highest chance of success on that platform.
-
-A _feature profile_ consists of: mechanics, complexity, categories & subcategories, themes, playtime (manufacturer stated + community min/max), min/max players, and recommended age.
-
-The *chance of succeeding* is split into two independent scores:
-- **Quality score** — how well-regarded is the game among players who played it (`BayesAvgRating`, Bayesian-corrected for low vote counts)
-- **Commercial score** — how commercially successful is the game, time-normalised by years on market (`NumOwned / clamp(years_on_market, 1, 10)`, log-compressed)
-
-*Development viability* will (subjectively) depend on:
-- mechanics (will need to label each mechanic with a development viability rating)
-- complexity (simpler is more viable)
-- category and subcategories (will need to label each category with a development viability rating)
-- playtime (2+ hour long sessions might not be optimal for AR)
-- recommended age (under 14 years old is out of scope for target AR market)
-
 # Pipeline
 
 ## 1. Pre-processing (data preparation, no ML)
@@ -33,7 +17,7 @@ Two target labels computed during pre-processing; two models trained independent
 | `quality_score`    | `BayesAvgRating / 10`                                              | 0.36–0.85 |
 | `commercial_score` | `log1p(NumOwned / clamp(2025 − YearPublished, 1, 10))`, norm. 0–1 | 0–1       |
 
-See [[ML Plan — Pre-processing details]] for more details.
+See [pre-processing details](pre-processing%20details.md) for more details.
 
 ## 2. Prediction Training
 

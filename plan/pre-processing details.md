@@ -1,19 +1,18 @@
-
 # Files
 
-Data source examples available at [[bgg_data_documentation]]
+Data source examples available at [bgg_data_documentation](../dataset/bgg_data_documentation.md)
 
 | CSV                        | Rows       | Columns | Used in ML Plan | Reason                                                                                                                                         |
 | -------------------------- | ---------- | ------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| [[games.csv]]                | 21,925     | 48      | ✓               | Core source for feature profile (complexity, playtime, players, language ease, age) and success scores (bayes rating, owned, year published) |
-| [[mechanics.csv]]            | 21,925     | 158     | ✓               | 157 mechanic binary flags — primary training features and clustering input                                                                     |
-| [[themes.csv]]               | 21,925     | 218     | ✓               | 217 theme binary flags — primary training features and clustering input                                                                        |
-| [[subcategories.csv]]        | 21,925     | 11      | ✓               | 10 subcategory binary flags — training features                                                                                                |
-| [[user_ratings.csv]]         | 18,942,215 | 3       | ✗               | Individual ratings already aggregated in games.csv (BayesAvgRating, NumUserRatings)                                                            |
-| [[ratings_distribution.csv]] | 21,925     | 96      | ✗               | Rating distributions already summarised in games.csv                                                                                           |
-| [[artists_reduced.csv]]      | 21,925     | 1,690   | ✗               | Artist identity not part of feature profile or success score                                                                                   |
-| [[designers_reduced.csv]]    | 21,925     | 1,599   | ✗               | Designer identity not part of feature profile or success score                                                                                 |
-| [[publishers_reduced.csv]]   | 21,925     | 1,956   | ✗               | Publisher identity not part of feature profile or success score                                                                                |
+| [games.csv](../dataset/games.csv)                | 21,925     | 48      | ✓               | Core source for feature profile (complexity, playtime, players, language ease, age) and success scores (bayes rating, owned, year published) |
+| [mechanics.csv](../dataset/mechanics.csv)            | 21,925     | 158     | ✓               | 157 mechanic binary flags — primary training features and clustering input                                                                     |
+| [themes.csv](../dataset/themes.csv)               | 21,925     | 218     | ✓               | 217 theme binary flags — primary training features and clustering input                                                                        |
+| [subcategories.csv](../dataset/subcategories.csv)        | 21,925     | 11      | ✓               | 10 subcategory binary flags — training features                                                                                                |
+| [user_ratings.csv](../dataset/user_ratings.csv)         | 18,942,215 | 3       | ✗               | Individual ratings already aggregated in games.csv (BayesAvgRating, NumUserRatings)                                                            |
+| [ratings_distribution.csv](../dataset/ratings_distribution.csv) | 21,925     | 96      | ✗               | Rating distributions already summarised in games.csv                                                                                           |
+| [artists_reduced.csv](../dataset/artists_reduced.csv)      | 21,925     | 1,690   | ✗               | Artist identity not part of feature profile or success score                                                                                   |
+| [designers_reduced.csv](../dataset/designers_reduced.csv)    | 21,925     | 1,599   | ✗               | Designer identity not part of feature profile or success score                                                                                 |
+| [publishers_reduced.csv](../dataset/publishers_reduced.csv)   | 21,925     | 1,956   | ✗               | Publisher identity not part of feature profile or success score                                                                                |
 
 # Pre-processing choices
 
