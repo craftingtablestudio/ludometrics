@@ -1,4 +1,4 @@
-# Pipeline
+# Pipeline Plan
 
 ## 1. Pre-processing (data preparation, no ML)
 
