@@ -80,6 +80,13 @@ target/
 # Jupyter Notebook
 .ipynb_checkpoints
 
+# Large dataset files not committed to the repo
+dataset/user_ratings.csv
+
+# Trained model files — regenerate with: uv run run-notebooks --splits 80_20
+# Winner models (results/quality_score.pkl, results/commercial_score.pkl) are committed
+results/models/**/*.pkl
+
 # IPython
 profile_default/
 ipython_config.py

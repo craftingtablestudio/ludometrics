@@ -7,8 +7,36 @@ requires-python = ">=3.14"
 dependencies = [
     "euporie>=2.10.4",
     "ipykernel>=7.2.0",
+    "joblib>=1.4.0",
+    "lightgbm>=4.0.0",
     "numpy>=2.4.3",
     "pandas>=3.0.1",
+    "scikit-learn>=1.5.0",
     "scipy>=1.17.1",
     "nbconvert>=7.0.0",
 ]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["utils*", "scripts*"]
+
+[tool.uv]
+package = true
+
+[project.scripts]
+run-notebooks = "scripts.run_notebooks:main"
+format        = "scripts.format:main"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+    "ruff>=0.15.8",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+python_files = ["*.test.py", "test_*.py"]
+addopts = "--import-mode=importlib"

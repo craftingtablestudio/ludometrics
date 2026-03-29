@@ -12,12 +12,12 @@
 
 Two target labels computed during pre-processing; two models trained independently, interface always reports both.
 
-| Score              | Formula                                                            | Range     |
-| ------------------ | ------------------------------------------------------------------ | --------- |
-| `quality_score`    | `BayesAvgRating / 10`                                              | 0–1       |
-| `commercial_score` | `log1p(NumOwned / clamp(2025 − YearPublished, 1, 10))`, norm. 0–1 | 0–1       |
+| Score              | Formula                                                             | Range |
+| ------------------ | ------------------------------------------------------------------- | ----- |
+| `quality_score`    | `BayesAvgRating * 10`                                               | 0–100 |
+| `commercial_score` | `log1p(NumOwned / clamp(2025 − YearPublished, 1, 10))`, norm. 0–100 | 0–100 |
 
-See [preprocessing.ipynb](../preprocessing.ipynb) for full implementation details.
+See [00_preprocessing.ipynb](../notebooks/00_preprocessing.ipynb) for full implementation details.
 
 ## 2. Prediction Training
 
@@ -27,12 +27,12 @@ Targets: `quality_score` and `commercial_score` — each trained as an independe
 
 Each algorithm is run against both targets; results are compared to determine which performs best.
 
-| Algorithm              | Reason                                                                                                                         | In *ML with R*? |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------ | --------------- |
+| Algorithm              | Reason                                                                                                                                                                                                            | In _ML with R_? |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
 | **Linear Regression**  | Simple starting point; with 400+ binary features, regularisation (Ridge/Lasso) will likely be needed to avoid multicollinearity — coefficients directly show which mechanics and themes correlate with each score | ✓ Ch 6          |
-| **Regression Trees**   | Naturally handles the ~400 sparse binary mechanic/theme columns without scaling; splits reveal non-linear feature interactions | ✓ Ch 6          |
-| **Random Forest**      | Averages many trees to reduce the overfitting a single tree is prone to on high-dimensional sparse data like ours              | ✗ later         |
-| **LightGBM / XGBoost** | Gradient-boosted trees are consistently state-of-the-art on tabular data with mixed binary + continuous features at this scale | ✗ later         |
+| **Regression Trees**   | Naturally handles the ~400 sparse binary mechanic/theme columns without scaling; splits reveal non-linear feature interactions                                                                                    | ✓ Ch 6          |
+| **Random Forest**      | Averages many trees to reduce the overfitting a single tree is prone to on high-dimensional sparse data like ours                                                                                                 | ✗ later         |
+| **LightGBM / XGBoost** | Gradient-boosted trees are consistently state-of-the-art on tabular data with mixed binary + continuous features at this scale                                                                                    | ✗ later         |
 
 Algorithms we will not try:
 
@@ -48,13 +48,14 @@ Algorithms we will not try:
 
 After training, cluster mechanics and themes to create a human-friendly control layer. Clusters are never fed into the model — instead each cluster stores a **centroid vector** (average raw feature values of all games in that cluster), which is what actually gets passed to the model.
 
-| Algorithm | Applied to | Notes |
-| --- | --- | --- |
+| Algorithm                       | Applied to                    | Notes                                                                              |
+| ------------------------------- | ----------------------------- | ---------------------------------------------------------------------------------- |
 | **Louvain community detection** | Mechanics co-occurrence graph | Finds natural mechanic families; better fit than k-means for graph-structured data |
-| **Louvain community detection** | Themes co-occurrence graph | Same rationale |
-| **k-means** (fallback) | Either | Simpler to implement in R if Louvain proves impractical |
+| **Louvain community detection** | Themes co-occurrence graph    | Same rationale                                                                     |
+| **k-means** (fallback)          | Either                        | Simpler to implement in R if Louvain proves impractical                            |
 
 k-means fallback — finding the natural number of clusters:
+
 - **Elbow plot**: plot inertia vs k; look for the point of diminishing returns
 - **Silhouette score**: peak score indicates the most natural k
 - Run both for k = 2–30 separately — mechanics and themes may converge on different values
@@ -64,19 +65,19 @@ k-means fallback — finding the natural number of clusters:
 
 Training data (each game is a row of raw mechanic columns):
 
-| game | deck_building | worker_placement | auction | cooperative | dice_rolling |
-| --- | --- | --- | --- | --- | --- |
-| Wingspan | 1 | 0 | 0 | 0 | 0 |
-| Agricola | 0 | 1 | 0 | 0 | 0 |
-| Viticulture | 0 | 1 | 1 | 0 | 0 |
-| Pandemic | 0 | 0 | 0 | 1 | 0 |
+| game        | deck_building | worker_placement | auction | cooperative | dice_rolling |
+| ----------- | ------------- | ---------------- | ------- | ----------- | ------------ |
+| Wingspan    | 1             | 0                | 0       | 0           | 0            |
+| Agricola    | 0             | 1                | 0       | 0           | 0            |
+| Viticulture | 0             | 1                | 1       | 0           | 0            |
+| Pandemic    | 0             | 0                | 0       | 1           | 0            |
 
 After clustering, centroid vectors per cluster (averaged from games in that cluster):
 
-| cluster               | deck_building | worker_placement | auction | cooperative | dice_rolling |
-| --------------------- | ------------- | ---------------- | ------- | ----------- | ------------ |
-| "Resource & Trading"  | 0.31          | 0.78             | 0.52    | 0.05        | 0.12         |
-| "Team & Cooperative"  | 0.18          | 0.09             | 0.03    | 0.91        | 0.22         |
+| cluster              | deck_building | worker_placement | auction | cooperative | dice_rolling |
+| -------------------- | ------------- | ---------------- | ------- | ----------- | ------------ |
+| "Resource & Trading" | 0.31          | 0.78             | 0.52    | 0.05        | 0.12         |
+| "Team & Cooperative" | 0.18          | 0.09             | 0.03    | 0.91        | 0.22         |
 
 When the user picks "Team & Cooperative", the model receives the centroid row — same format as any training row.
 
@@ -94,12 +95,14 @@ user picks mechanic cluster + theme cluster + other constraints
 ### Development Viability
 
 Computed on demand — not precomputed for the whole dataset, since it's a judgment call rather than a data-driven score.
+
 - Assign an AR difficulty weight to each mechanic and theme manually, based on your own assessment of what's feasible on Vision Pro
 - Aggregate across the feature vector; apply additional penalties for high language density and complexity
 
 ### Interface
 
 A simple HTML page with:
+
 - **Mechanic cluster dropdown** — select a cluster (e.g. "Team & Cooperative"); after selecting, the individual mechanics in that cluster are shown and can be toggled on/off to refine the feature vector away from the centroid
 - **Theme cluster dropdown** — same pattern: select a cluster, then optionally adjust individual themes within it
 - **Continuous feature inputs** — sliders or number inputs for complexity, playtime, player count, recommended age
@@ -110,6 +113,5 @@ A simple HTML page with:
 ### Future ideas
 
 - **Global SHAP chart**: a precomputed bar chart (generated once after training) showing which mechanics and themes most positively and negatively affect `success_score` — displayed as a static reference panel so you always know which levers matter most
-- **Local SHAP per prediction**: instead of a global chart, explain why *this specific input* got its score — more complex to implement in the interface but more actionable
+- **Local SHAP per prediction**: instead of a global chart, explain why _this specific input_ got its score — more complex to implement in the interface but more actionable
 - **LLM interface**: allow an LLM to interact with the model in the same way as the HTML interface — translating natural language game descriptions into feature vectors, querying the model, and iterating on results conversationally
-

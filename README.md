@@ -8,17 +8,19 @@ Machine learning models that predict board game success from board game data
 
 ## Preamble
 
-Based on a [dataset](https://www.kaggle.com/datasets/threnjen/board-games-database-from-boardgamegeek) of 22k board games. I plan to predict the *chance of succeeding* a board game has based on its *feature profile*.
+Based on a [dataset](https://www.kaggle.com/datasets/threnjen/board-games-database-from-boardgamegeek) of 22k board games. I plan to predict the _chance of succeeding_ a board game has based on its _feature profile_.
 
-A secondary *development viability* score — computed on demand from mechanic and theme clusters — estimates how feasible a game concept is to build on a mixed reality platform like Apple Vision Pro. The end goal is a tool that helps determine what kind of board game to build for the highest chance of success on that platform.
+A secondary _development viability_ score — computed on demand from mechanic and theme clusters — estimates how feasible a game concept is to build on a mixed reality platform like Apple Vision Pro. The end goal is a tool that helps determine what kind of board game to build for the highest chance of success on that platform.
 
 A _feature profile_ consists of: mechanics, complexity, categories & subcategories, themes, playtime (manufacturer stated + community min/max), min/max players, and recommended age.
 
-The *chance of succeeding* is split into two independent scores:
+The _chance of succeeding_ is split into two independent scores:
+
 - **Quality score** — how well-regarded is the game among players who played it (`BayesAvgRating`, Bayesian-corrected for low vote counts)
 - **Commercial score** — how commercially successful is the game, time-normalised by years on market (`NumOwned / clamp(years_on_market, 1, 10)`, log-compressed)
 
-*Development viability* will (subjectively) depend on:
+_Development viability_ will (subjectively) depend on:
+
 - mechanics (will need to label each mechanic with a development viability rating)
 - complexity (simpler is more viable)
 - category and subcategories (will need to label each category with a development viability rating)
@@ -39,39 +41,52 @@ If you don't have `uv`, install it with `curl -LsSf https://astral.sh/uv/install
 uv sync
 ```
 
-### preprocessing.ipynb
-
-Loads the four source CSVs, applies all pre-processing, computes the two target labels (`quality_score`, `commercial_score`), and writes `data/games_processed.csv`.
-
-**Input:** `dataset/`
-**Output:** `data/games_processed.csv`
+**macOS only:** LightGBM requires `libomp` (OpenMP), which is not bundled in its Python wheel and must be installed separately:
 
 ```sh
-# open in notebook UI
-uv run euporie-notebook preprocessing.ipynb
-
-# run headless in cli
-uv run jupyter execute preprocessing.ipynb
-
-# run headless in cli — save results
-uv run jupyter nbconvert --to notebook --execute --inplace preprocessing.ipynb
+brew install libomp
 ```
 
-### verify_bayes_avg.py
-
-Fits and validates the BGG Bayesian average formula (`BayesAvg = (C×m + N×AvgRating) / (C+N)`) against the stored `BayesAvgRating` column. Prints best-fit parameters, formula accuracy, and a sanity check comparing `user_ratings.csv` against `games.csv`.
-
-**Input:** `dataset/`
+### Run tests
 
 ```sh
-uv run verify_bayes_avg.py
+uv run pytest
+```
+
+### Training notebooks
+
+Each notebook trains one algorithm against both targets and saves models + a report to `models/<algorithm>/`.
+
+```sh
+# Open interactively
+uv run euporie-notebook notebooks/01_linear_regression.ipynb
+
+# Run all four headlessly (saves outputs into each notebook's JSON)
+uv run run-notebooks
+
+# Run for a specific split ratio
+uv run run-notebooks --split 70_30
+```
+
+### Combine reports
+
+Discovers all `models/*/report_*.md` files across every split and algorithm, and writes a single comparison table to `results/comparison.md`.
+
+```sh
+uv run combine-reports
+```
+
+### Preprocessing
+
+```sh
+uv run euporie-notebook notebooks/00_notebooks/00_preprocessing.ipynb
 ```
 
 ## TODO
 
-- [x] Verify BGG Bayesian average formula (`verify_bayes_avg.py`)
-- [x] Pre-process dataset (`preprocessing.ipynb`)
-- [ ] Train prediction models (`quality_score`, `commercial_score`)
+- [x] Verify BGG Bayesian average formula (first section of `notebooks/00_preprocessing.ipynb`)
+- [x] Pre-process dataset (`notebooks/00_preprocessing.ipynb`)
+- [x] Train prediction models (`quality_score`, `commercial_score`)
 - [ ] Cluster mechanics and themes (Louvain / k-means)
 - [ ] Label mechanics and themes with development viability weights
 - [ ] Build HTML interface
