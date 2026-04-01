@@ -1,18 +1,32 @@
+import nbformat
 import numpy as np
 import pandas as pd
 from pathlib import Path
 from sklearn.pipeline import Pipeline
 
 from utils.train_utils import (
-    build_linear_pipeline,
     top_feature_importances,
     update_results_table,
 )
 
+NOTEBOOK_PATH = Path(__file__).parent.parent / "notebooks" / "01_linear_regression.ipynb"
 
 CONTINUOUS_COLS = ["GameWeight", "MinPlayers"]
 BINARY_COLS = ["Alliances", "Cooperative", "Fantasy"]
 ALL_COLS = CONTINUOUS_COLS + BINARY_COLS
+
+
+def _load_build_linear_pipeline():
+    nb = nbformat.read(NOTEBOOK_PATH, as_version=4)
+    for cell in nb.cells:
+        if cell.cell_type == "code" and "def build_linear_pipeline" in cell.source:
+            ns = {}
+            exec(compile(cell.source, str(NOTEBOOK_PATH), "exec"), ns)
+            return ns["build_linear_pipeline"]
+    raise RuntimeError("build_linear_pipeline not found in 01_linear_regression.ipynb")
+
+
+build_linear_pipeline = _load_build_linear_pipeline()
 
 
 def _sample_df():

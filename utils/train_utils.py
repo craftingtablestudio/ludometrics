@@ -1,33 +1,15 @@
 from pathlib import Path
+from typing import Protocol
 
-from sklearn.compose import ColumnTransformer
-from sklearn.linear_model import RidgeCV
-from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import StandardScaler
+import numpy as np
 
 
-def build_linear_pipeline(
-    continuous_cols: list[str], all_feature_cols: list[str]
-) -> Pipeline:
-    """Return a fitted-ready Pipeline: StandardScaler on continuous cols, passthrough on binary cols."""
-    preprocessor = ColumnTransformer(
-        transformers=[
-            ("scale", StandardScaler(), continuous_cols),
-        ],
-        remainder="passthrough",
-        verbose_feature_names_out=False,
-    ).set_output(transform="pandas")
-
-    return Pipeline(
-        [
-            ("preprocessor", preprocessor),
-            ("model", RidgeCV()),
-        ]
-    )
+class HasFeatureImportances(Protocol):
+    feature_importances_: np.ndarray
 
 
 def top_feature_importances(
-    model,
+    model: HasFeatureImportances,
     feature_names: list[str],
     n: int = 10,
 ) -> list[tuple[str, float]]:
@@ -80,7 +62,7 @@ def update_results_table(
 
     if results_path.exists():
         lines = results_path.read_text().splitlines()
-        rows = [l for l in lines if l.startswith("| ") and l not in (HEADER, SEPARATOR)]
+        rows = [l for l in lines if l.startswith("| ") and "---" not in l and "Algorithm" not in l]
         # Remove existing row for this algorithm + split if present
         rows = [
             r for r in rows if not (f"| {algorithm} |" in r and f"| {split} |" in r)
