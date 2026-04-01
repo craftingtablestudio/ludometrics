@@ -86,6 +86,7 @@ dataset/user_ratings.csv
 # Trained model files — regenerate with: uv run run-notebooks --splits 80_20
 # Winner models (results/quality_score.pkl, results/commercial_score.pkl) are committed
 results/models/**/*.pkl
+results/models/**/*_predictions.csv
 
 # IPython
 profile_default/
