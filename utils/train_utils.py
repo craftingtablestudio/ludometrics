@@ -1,3 +1,4 @@
+import subprocess
 from pathlib import Path
 from typing import Protocol
 
@@ -64,9 +65,11 @@ def update_results_table(
         lines = results_path.read_text().splitlines()
         rows = [l for l in lines if l.startswith("| ") and "---" not in l and "Algorithm" not in l]
         # Remove existing row for this algorithm + split if present
-        rows = [
-            r for r in rows if not (f"| {algorithm} |" in r and f"| {split} |" in r)
-        ]
+        # Parse cells by splitting on | and stripping to handle oxfmt's column padding
+        def _row_cells(row: str) -> list[str]:
+            return [c.strip() for c in row.split("|")[1:-1]]
+
+        rows = [r for r in rows if (_row_cells(r)[0], _row_cells(r)[1]) != (algorithm, split)]
     else:
         results_path.parent.mkdir(parents=True, exist_ok=True)
         rows = []
@@ -75,3 +78,12 @@ def update_results_table(
     rows.sort(key=lambda r: float(r.split("|")[-2].strip()), reverse=True)
 
     results_path.write_text("\n".join([HEADER, SEPARATOR] + rows) + "\n")
+
+    try:
+        subprocess.run(
+            ["oxfmt", "--write", str(results_path.resolve())],
+            check=True,
+            capture_output=True,
+        )
+    except FileNotFoundError:
+        pass  # oxfmt not installed, skip
