@@ -4,8 +4,8 @@
 
 ### Feature Profile
 
-- **Multi-hot encode** mechanics (157 columns) and themes (217 columns) — raw binary flags per game, used directly for training; no information is destroyed at this stage
-- **Multi-hot encode** categories and subcategories
+- **Join mechanics and themes as binary flag columns** (157 mechanic columns, 217 theme columns from separate source files) — each game has a 1 for every mechanic/theme it has, 0 otherwise; used directly for training; no information is destroyed at this stage
+- **Join categories and subcategories as binary flag columns**
 - **Normalise / transform remaining features** — inspect the dataset to determine appropriate transformations for continuous features (complexity, manufacturer playtime, community min/max playtime, min/max players, recommended age) before committing to specific encodings
 
 ### Success Scores
@@ -27,12 +27,12 @@ Targets: `quality_score` and `commercial_score` — each trained as an independe
 
 Each algorithm is run against both targets; results are compared to determine which performs best.
 
-| Algorithm              | Reason                                                                                                                                                                                                            | In _ML with R_? |
-| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| **Linear Regression**  | Simple starting point; with 400+ binary features, regularisation (Ridge/Lasso) will likely be needed to avoid multicollinearity — coefficients directly show which mechanics and themes correlate with each score | ✓ Ch 6          |
-| **Regression Trees**   | Naturally handles the ~400 sparse binary mechanic/theme columns without scaling; splits reveal non-linear feature interactions                                                                                    | ✓ Ch 6          |
-| **Random Forest**      | Averages many trees to reduce the overfitting a single tree is prone to on high-dimensional sparse data like ours                                                                                                 | ✗ later         |
-| **LightGBM / XGBoost** | Gradient-boosted trees are consistently state-of-the-art on tabular data with mixed binary + continuous features at this scale                                                                                    | ✗ later         |
+| Algorithm              | Reason                                                                                                                                                                                                            |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Linear Regression**  | Simple starting point; with 400+ binary features, regularisation (Ridge/Lasso) will likely be needed to avoid multicollinearity — coefficients directly show which mechanics and themes correlate with each score |
+| **Regression Trees**   | Naturally handles the ~400 sparse binary mechanic/theme columns without scaling; splits reveal non-linear feature interactions                                                                                    |
+| **Random Forest**      | Averages many trees to reduce the overfitting a single tree is prone to on high-dimensional sparse data like ours                                                                                                 |
+| **LightGBM / XGBoost** | Gradient-boosted trees are consistently state-of-the-art on tabular data with mixed binary + continuous features at this scale                                                                                    |
 
 Algorithms we will not try:
 
