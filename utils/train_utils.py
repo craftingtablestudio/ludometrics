@@ -1,28 +1,5 @@
 import subprocess
 from pathlib import Path
-from typing import Protocol
-
-import numpy as np
-
-
-class HasFeatureImportances(Protocol):
-    feature_importances_: np.ndarray
-
-
-def top_feature_importances(
-    model: HasFeatureImportances,
-    feature_names: list[str],
-    n: int = 10,
-) -> list[tuple[str, float]]:
-    """Return the top-n features sorted by importance descending.
-
-    Works with any sklearn-compatible model that exposes `feature_importances_`
-    (DecisionTree, RandomForest, LightGBM, etc.).
-    """
-    pairs = sorted(
-        zip(feature_names, model.feature_importances_), key=lambda x: x[1], reverse=True
-    )
-    return pairs[:n]
 
 
 def update_results_table(

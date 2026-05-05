@@ -4,10 +4,7 @@ import pandas as pd
 from pathlib import Path
 from sklearn.pipeline import Pipeline
 
-from utils.train_utils import (
-    top_feature_importances,
-    update_results_table,
-)
+from utils.train_utils import update_results_table
 
 NOTEBOOK_PATH = Path(__file__).parent.parent / "notebooks" / "01_linear_regression.ipynb"
 
@@ -155,43 +152,3 @@ def test_update_results_table_creates_parent_dirs(tmp_path):
     assert path.exists()
 
 
-# ---------------------------------------------------------------------------
-# top_feature_importances
-# ---------------------------------------------------------------------------
-
-
-def _fitted_tree():
-    """A tiny fitted DecisionTreeRegressor to use as a test fixture."""
-    from sklearn.tree import DecisionTreeRegressor
-
-    X = pd.DataFrame(
-        {
-            "mechanic_a": [1, 0, 1, 0, 1],
-            "mechanic_b": [0, 1, 0, 1, 0],
-            "mechanic_c": [1, 1, 0, 0, 1],
-        }
-    )
-    y = [0.8, 0.3, 0.7, 0.2, 0.9]
-    model = DecisionTreeRegressor(random_state=42)
-    model.fit(X, y)
-    return model, list(X.columns)
-
-
-def test_top_feature_importances_returns_n_items():
-    model, feature_names = _fitted_tree()
-    result = top_feature_importances(model, feature_names, n=2)
-    assert len(result) == 2
-
-
-def test_top_feature_importances_sorted_descending():
-    model, feature_names = _fitted_tree()
-    result = top_feature_importances(model, feature_names, n=3)
-    values = [v for _, v in result]
-    assert values == sorted(values, reverse=True)
-
-
-def test_top_feature_importances_names_match_features():
-    model, feature_names = _fitted_tree()
-    result = top_feature_importances(model, feature_names, n=3)
-    names = [name for name, _ in result]
-    assert all(name in feature_names for name in names)
