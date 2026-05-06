@@ -71,7 +71,7 @@ Each notebook trains one algorithm against both targets. Results are appended to
 uv run run-notebooks
 
 # Run with specific splits
-uv run run-notebooks --splits 80_20 70_30 50_50 90_10
+uv run run-notebooks --splits 50_50 90_10 70_30 80_20
 
 # Open a notebook interactively
 uv run euporie-notebook notebooks/01_linear_regression.ipynb
