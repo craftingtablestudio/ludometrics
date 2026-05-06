@@ -385,7 +385,7 @@ R² (Coefficient of Determination) measures how much of the variation in scores 
 | ----------------- | ----- | ------- | -------- |
 | **Quality score** | 0.662 | 1.3 pts | 2.32 pts |
 
-<div class="mt-2 text-xl">
+<div class="mt-2">
 The scatter shows predictions tracking actuals well in the dense mid-range. The residual histogram centres on zero with a slight right skew where the model under-predicts a few high-rated games.
 </div>
 
@@ -407,7 +407,7 @@ Similar explanatory power. The remaining scatter is expected: after 500 rounds o
 | -------------------- | ----- | ------- | -------- |
 | **Commercial score** | 0.635 | 6.8 pts | 8.78 pts |
 
-<div class="mt-2 text-xl">
+<div class="mt-2">
 No amount of extra boosting rounds can fix what the data doesn't have. Artwork quality, publisher reach, marketing spend, timing, and luck are not in the dataset.
 </div>
 
