@@ -59,7 +59,10 @@ uv run clean
 Loads the raw CSVs, applies all pre-processing, computes success scores, and saves `data/games_processed.csv`.
 
 ```sh
+# With UI
 uv run euporie-notebook notebooks/00_preprocessing.ipynb
+# Without UI
+uv run euporie-run notebooks/00_preprocessing.ipynb
 ```
 
 ### Training

@@ -317,20 +317,10 @@ This is the model that won. Important features were age, complexity, playtime, a
 
 # Demo: Running the Pipeline
 
-<div class="mt-8 border-2 border-dashed border-[#59788E] rounded-lg h-60 flex items-center justify-center text-3xl opacity-80">
-  Insert screen recording here
-</div>
+<video src="/ludometrics_running.mp4" controls class="mt-8 rounded-lg h-90 mx-auto" />
 
-<div class="mt-8">
-
-```sh
-uv run run-notebooks --splits 80_20
-```
-
-</div>
-
-<div class="mt-6 text-xl leading-relaxed">
-The demo should show the four training notebooks running headlessly, both targets being trained, and the result tables being updated.
+<div class="mt-4 text-xl leading-relaxed">
+The demo shows the preprocessing and four training notebooks running, both targets being trained, and the result tables being updated.
 </div>
 
 <!--
