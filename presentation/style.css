@@ -1,0 +1,47 @@
+.slidev-layout table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 1em;
+  line-height: 1.25;
+}
+
+.slidev-layout thead th {
+  background: #eceff1;
+  color: #263238;
+  font-weight: 700;
+}
+
+.slidev-layout th,
+.slidev-layout td {
+  border-bottom: 1px solid rgba(89, 120, 142, 0.18);
+  padding: 0.46rem 0.72rem;
+  vertical-align: top;
+}
+
+.slidev-layout tbody tr:nth-child(even) {
+  background: rgba(89, 120, 142, 0.035);
+}
+
+.slidev-layout table code {
+  font-size: 1em;
+  padding: 0.05rem 0.28rem;
+}
+
+.algorithm-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.algorithm-detail .algorithm-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+  align-items: center;
+  column-gap: 2rem;
+}
+
+.algorithm-detail img {
+  width: 100%;
+  object-fit: contain;
+}
