@@ -46,6 +46,14 @@ brew install libomp
 
 ## Usage
 
+### Clean
+
+Removes all generated results, processed data, and notebook outputs. Does not touch source data or code.
+
+```sh
+uv run clean
+```
+
 ### Preprocessing
 
 Loads the raw CSVs, applies all pre-processing, computes success scores, and saves `data/games_processed.csv`.
@@ -67,18 +75,6 @@ uv run run-notebooks --splits 80_20 70_30 50_50 90_10
 
 # Open a notebook interactively
 uv run euporie-notebook notebooks/01_linear_regression.ipynb
-```
-
-### Tests
-
-```sh
-uv run pytest
-```
-
-### Format
-
-```sh
-uv run format
 ```
 
 ## TODO

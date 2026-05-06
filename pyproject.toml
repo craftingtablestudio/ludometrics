@@ -29,6 +29,7 @@ package = true
 [project.scripts]
 run-notebooks = "scripts.run_notebooks:main"
 format        = "scripts.format:main"
+clean         = "scripts.clean:main"
 
 [dependency-groups]
 dev = [
