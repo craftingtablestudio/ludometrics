@@ -1,0 +1,40 @@
+cluster_id,size,n_games_sum,mechanics,label
+4,8,14293,Dice Rolling; Grid Movement; Hexagon Grid; Movement Points; Ratio / Combat Results Table; Scenario / Mission / Campaign Game; Simulation; Zone of Control,Hex-and-Counter Wargame
+12,5,11392,"Deck, Bag, and Pool Building; Drafting; Hand Management; Set Collection; Take That",Deckbuilder
+13,5,8473,Action Points; Area Majority / Influence; Area Movement; Modular Board; Variable Player Powers,Area Control Euro
+5,8,5474,Betting and Bluffing; Deduction; Hidden Roles; Memory; Roles with Asymmetric Information; Team-Based Game; Traitor Game; Voting,Social Deduction
+1,8,5395,Action Timer; Dexterity; Enclosure; Pattern Building; Pattern Recognition; Real-Time; Speed Matching; Tile Placement,Real-Time Dexterity
+11,5,4574,Auction/Bidding; Negotiation; Player Elimination; Roll / Spin and Move; Trading,Negotiation and Bidding
+7,7,3714,Cooperative Game; Elapsed Real Time Ending; Move Through Deck; Narrative Choice / Paragraph; Role Playing; Solo / Solitaire Game; Storytelling,Narrative Co-op
+17,4,1695,Action Queue; Bias; Programmed Movement; Simultaneous Action Selection,Action Programming
+2,8,1509,Advantage Token; Automatic Resource Growth; Contracts; End Game Bonuses; Income; Increase Value of Unchosen Resources; TableauBuilding; Worker Placement,Worker Placement Engine
+30,2,1502,Campaign / Battle Card Driven; Point to Point Movement,Card-Driven Wargame
+3,8,1405,Commodity Speculation; Investment; Loans; Market; Network and Route Building; Ownership; Stock Holding; Victory Points as a Resource,Economic Stocks & Routes
+20,4,1066,Die Icon Resolution; King of the Hill; Push Your Luck; Re-rolling and Locking,Push-Your-Luck Dice
+19,4,815,Bingo; Grid Coverage; Line Drawing; Paper-and-Pencil,Roll-and-Write
+24,3,708,Hidden Movement; Minimap Resolution; Secret Unit Deployment,Hidden Movement
+32,2,701,Events; Variable Set-up,Variable Setup & Events
+31,2,623,Crayon Rail System; Pick-up and Deliver,Pick-up and Deliver
+10,5,505,Ladder Climbing; Physical Removal; Predictive Bid; Single Loser Game; Trick-taking,Trick-Taking
+6,7,476,Catch the Leader; Lose a Turn; Matching; Race; Random Production; Resource to Move; Track Movement,Roll-and-Move Race
+39,1,459,Physical,Physical
+26,3,404,Line of Sight; Measurement Movement; Movement Template,Miniatures Skirmish
+27,3,403,Action Drafting; Follow; Variable Phase Order,Action Drafting
+8,7,366,Impulse Movement; Pattern Movement; Pieces as Map; Slide/Push; Square Grid; Static Capture; Three Dimensional Movement,Abstract Capture
+38,1,264,Chit-Pull System,Chit-Pull Wargame
+15,4,213,Mancala; Relative Movement; Rondel; Time Track,Rondel & Mancala
+9,6,197,Action/Event; Command Cards; Finale Ending; Multiple Maps; Sudden Death Ending; Tug of War,Command Card Battle
+14,5,186,Alliances; Bribery; Card Play Conflict Resolution; Force Commitment; Prisoner's Dilemma,Diplomacy & Alliances
+16,4,171,"Action Retrieval; I Cut, You Choose; Legacy Game; Once-Per-Game Abilities",Legacy Game
+21,4,158,Deck Construction; Map Addition; Map Deformation; Stat Check Resolution,Deckbuilding Adventure
+33,2,147,Communication Limits; Targeted Clues,Cooperative Clue-Giving
+22,3,127,Area-Impulse; Kill Steal; Passed Action Token,Area-Impulse Wargame
+23,3,119,Chaining; Connections; Score-and-Reset Game,Combo Chaining
+28,3,118,Layering; Map Reduction; Melding and Splaying,Melding & Layering
+18,4,94,Critical Hits and Failures; Different Dice Movement; Interrupts; Order Counters,Tactical Dice Combat
+25,3,91,Delayed Purchase; Moving Multiple Units; Tech Trees / Tech Tracks,4X Tech Tree
+29,2,66,Hidden Victory Points; Highest-Lowest Scoring,Hidden Scoring
+37,1,56,Semi-Cooperative Game,Semi-Cooperative
+34,1,31,Player Judge,Party Judge
+35,1,14,Cube Tower,Cube Tower
+36,1,10,Induction,Induction

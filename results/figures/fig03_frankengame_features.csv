@@ -1,0 +1,51 @@
+step,feature,display,flip_delta,running_pred
+1,Mech_Grid_Coverage,Grid Coverage,3.2231445735641913,58.42299882341902
+2,Mech_Command_Cards,Command Cards,1.9130189214624451,60.33601774488147
+3,Mech_Bingo,Bingo,1.7643187182692444,62.10033646315071
+4,Mech_Communication_Limits,Communication Limits,1.2822466192976805,63.38258308244839
+5,Cat_Party,Category — Party,4.753101201972854,68.13568428442125
+6,Mech_Hidden_Roles,Hidden Roles,1.653602119571076,69.78928640399232
+7,Mech_Legacy_Game,Legacy Game,1.0295710593920973,70.81885746338442
+8,Mech_Ladder_Climbing,Ladder Climbing,0.9273496448847283,71.74620710826915
+9,Theme_Spooky_Old_Houses,Theme — Spooky Old Houses,0.7831741963006635,72.52938130456981
+10,Mech_Traitor_Game,Traitor Game,0.7689321529024937,73.2983134574723
+11,Mech_Slide_Push,Slide/Push,0.7130090849323238,74.01132254240463
+12,Mech_Targeted_Clues,Targeted Clues,0.6169971884372814,74.62831973084191
+13,Mech_Speed_Matching,Speed Matching,0.5534640836745837,75.18178381451649
+14,Theme_Construction,Theme — Construction,0.5110656144077979,75.69284942892429
+15,Theme_Tropical,Theme — Tropical,0.4763366245229008,76.16918605344719
+16,Mech_Deduction,Deduction,0.42052186678961334,76.5897079202368
+17,Theme_Native_Americans___First_Peoples,Theme — Native Americans / First Peoples,0.37997411486871613,76.96968203510552
+18,Theme_City,Theme — City,0.31656919668068895,77.28625123178621
+19,Theme_Villainy,Theme — Villainy,0.30948801115808067,77.59573924294429
+20,Theme_Love___Romanc,Theme — Love / Romanc,0.2819130906543279,77.87765233359862
+21,Mech_Race,Race,0.23636352424075824,78.11401585783938
+22,Theme_loose_American_Indian_Wars,Theme (broad) — American Indian Wars,0.23390738940564404,78.34792324724502
+23,Theme_Witches,Theme — Witches,0.2101465567059364,78.55806980395096
+24,Mech_Elapsed_Real_Time_Ending,Elapsed Real Time Ending,0.20231203851489,78.76038184246585
+25,Mech_Tech_Trees___Tech_Tracks,Tech Trees / Tech Tracks,0.196502916998881,78.95688475946473
+26,Mech_Multiple_Maps,Multiple Maps,0.18245138899470703,79.13933614845944
+27,Mech_Mancala,Mancala,0.16663667115932412,79.30597281961876
+28,Mech_Interrupts,Interrupts,0.1671748317402404,79.473147651359
+29,Mech_Player_Elimination,Player Elimination,0.15098005498175837,79.62412770634076
+30,Theme_Fantasy_Sports,Theme — Fantasy Sports,0.1484302255539518,79.77255793189471
+31,Theme_loose_Age_of_Reason,Theme (broad) — Age of Reason,0.13822479440356972,79.91078272629828
+32,Mech_Line_Drawing,Line Drawing,0.12601536183801443,80.0367980881363
+33,Mech_Roles_with_Asymmetric_Information,Roles with Asymmetric Information,0.11850990560606078,80.15530799374235
+34,Mech_Hidden_Movement,Hidden Movement,0.1091224143500682,80.26443040809242
+35,Theme_loose_Fighting,Theme (broad) — Fighting,0.10703171120904642,80.37146211930147
+36,Mech_Betting_and_Bluffing,Betting and Bluffing,0.10170251032229771,80.47316462962377
+37,Mech_Paper_and_Pencil,Paper-and-Pencil,0.07818413559972726,80.5513487652235
+38,Mech_Time_Track,Time Track,0.07138131534644288,80.62273008056994
+39,Theme_loose_Racing,Theme (broad) — Racing,0.06802539585777367,80.69075547642771
+40,Theme_loose_Pike_and_Shot,Theme (broad) — Pike and Shot,0.06001116358885383,80.75076664001656
+41,Theme_Deserts,Theme — Deserts,0.05902974187299037,80.80979638188956
+42,Theme_Biology,Theme — Biology,0.05866562872023451,80.86846201060979
+43,Mech_Trick_taking,Trick-taking,0.05495449528591223,80.9234165058957
+44,Sub_Card_Game,Sub — Card Game,0.048929435782383734,80.97234594167809
+45,Mech_Secret_Unit_Deployment,Secret Unit Deployment,0.04759876233605098,81.01994470401414
+46,Mech_Simulation,Simulation,0.14022612332534834,81.16017082733948
+47,Theme_loose_Napoleonic,Theme (broad) — Napoleonic,0.07069928467613806,81.23087011201562
+48,Mech_Map_Addition,Map Addition,0.042988522077010316,81.27385863409263
+49,Theme_loose_Fantasy,Theme (broad) — Fantasy,0.03756993636459072,81.31142857045722
+50,Theme_loose_American_Revolutionary_War,Theme (broad) — American Revolutionary War,0.0369927837447932,81.34842135420202

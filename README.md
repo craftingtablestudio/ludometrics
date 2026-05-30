@@ -85,6 +85,6 @@ uv run euporie-notebook notebooks/01_linear_regression.ipynb
 - [x] Verify BGG Bayesian average formula
 - [x] Pre-process dataset
 - [x] Train prediction models (`quality_score`, `commercial_score`)
-- [ ] Cluster mechanics and themes (Louvain / k-means)
+- [x] Cluster mechanics (agglomerative cosine, adaptive non-uniform cut → ~40 clusters; see `notebooks/05_analysis.ipynb` Figure 5)
 - [ ] Label mechanics and themes with development viability weights
 - [ ] Build HTML interface

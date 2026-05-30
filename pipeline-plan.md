@@ -48,18 +48,32 @@ Algorithms we will not try:
 
 After training, cluster mechanics and themes to create a human-friendly control layer. Clusters are never fed into the model — instead each cluster stores a **centroid vector** (average raw feature values of all games in that cluster), which is what actually gets passed to the model.
 
-| Algorithm                       | Applied to                    | Notes                                                                              |
-| ------------------------------- | ----------------------------- | ---------------------------------------------------------------------------------- |
-| **Louvain community detection** | Mechanics co-occurrence graph | Finds natural mechanic families; better fit than k-means for graph-structured data |
-| **Louvain community detection** | Themes co-occurrence graph    | Same rationale                                                                     |
-| **k-means** (fallback)          | Either                        | Simpler to implement in R if Louvain proves impractical                            |
+| Algorithm                              | Applied to                                                                  | Notes                                                                                                                                                                                                |
+| -------------------------------------- | --------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Agglomerative hierarchical (cosine)** | 157 `Mech_*` feature vectors over training games (sourced from mechanics.csv) | Average linkage on cosine distance. **Non-uniform cut**: repeatedly split the largest current cluster (by re-linkaging on its submatrix) until every cluster ≤ `max_size=10` and `k ≥ k_min=40`, capped at `k_max=60`. |
+| **k-means** (fallback)                 | Mechanics                                                                   | Simpler to implement if hierarchical proves impractical.                                                                                                                                              |
 
-k-means fallback — finding the natural number of clusters:
+Themes are not clustered in v0. The dataset carries themes on two axes (see [pre-processing prefix scheme](#prefix-scheme)): 158 narrow `Theme_*` tags are largely mutually exclusive (max 1 per game), while 59 broad `Theme_loose_*` tags co-occur freely. Clustering the full `Theme_*` ∪ `Theme_loose_*` set is viable future work; for the v0 interface themes remain flat individual checkboxes.
 
-- **Elbow plot**: plot inertia vs k; look for the point of diminishing returns
-- **Silhouette score**: peak score indicates the most natural k
-- Run both for k = 2–30 separately — mechanics and themes may converge on different values
-- Inspect clusters qualitatively: if two are semantically indistinguishable, merge and re-run
+Finding the natural number of clusters (mechanics):
+
+- **Dendrogram inspection**: cut where the merge distances jump.
+- **Adaptive split-the-largest** (current): tune `max_size` to control cluster granularity. Smaller `max_size` → more clusters; raising it from 10 to 13 produces ~30 clusters, dropping to 7 produces ~60. The k_min / k_max bounds are guardrails, not targets.
+- **Elbow / silhouette** (k-means fallback): plot inertia and silhouette vs k.
+- Inspect clusters qualitatively: if two are semantically indistinguishable, merge and re-run.
+
+### Prefix scheme
+
+`00_preprocessing.ipynb` renames feature columns so every feature kind has a unique prefix. Downstream code filters by prefix instead of maintaining hard-coded name lists.
+
+| Prefix          | Source                | Count | Example                          |
+| --------------- | --------------------- | ----: | -------------------------------- |
+| `Cat:*`         | `games.csv` (kept)    |     8 | `Cat:Strategy`, `Cat:Party`      |
+| `Mech_*`        | `mechanics.csv`       |   157 | `Mech_Worker Placement`          |
+| `Theme_*`       | `themes.csv` (kept)   |   158 | `Theme_Vikings`                  |
+| `Theme_loose_*` | `themes.csv` (broad)  |    59 | `Theme_loose_Fantasy`            |
+| `Sub_*`         | `subcategories.csv`   |    10 | `Sub_Card Game`                  |
+| (no prefix)     | `games.csv` numeric   |     8 | `GameWeight`, `MinPlayers`       |
 
 **Example — what a mechanic cluster looks like:**
 

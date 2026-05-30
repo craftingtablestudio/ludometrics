@@ -1,0 +1,158 @@
+feature,sanitized,cluster,cluster_k12,n_games,centrality
+Alliances,Mech_Alliances,14,10,37,0.5203271508216858
+Area Majority / Influence,Mech_Area_Majority___Influence,13,10,1638,0.5603091716766357
+Auction/Bidding,Mech_Auction_Bidding,11,10,1156,0.6149747967720032
+Dice Rolling,Mech_Dice_Rolling,4,10,6481,0.7648219466209412
+Hand Management,Mech_Hand_Management,12,10,4493,0.7688174247741699
+Simultaneous Action Selection,Mech_Simultaneous_Action_Selection,17,10,1183,0.8584955334663391
+Trick-taking,Mech_Trick_taking,10,2,402,0.8990741968154907
+Hexagon Grid,Mech_Hexagon_Grid,4,10,2437,0.7229408621788025
+Once-Per-Game Abilities,Mech_Once_Per_Game_Abilities,16,10,41,0.5620816349983215
+Set Collection,Mech_Set_Collection,12,10,2956,0.6278495192527771
+Tile Placement,Mech_Tile_Placement,1,7,1830,0.6101072430610657
+Action Points,Mech_Action_Points,13,10,1183,0.5419350266456604
+Investment,Mech_Investment,3,9,33,0.28968968987464905
+Market,Mech_Market,3,9,79,0.39084357023239136
+Square Grid,Mech_Square_Grid,8,6,224,0.7948524951934814
+Stock Holding,Mech_Stock_Holding,3,9,307,0.6719659566879272
+Victory Points as a Resource,Mech_Victory_Points_as_a_Resource,3,9,71,0.36043232679367065
+Enclosure,Mech_Enclosure,1,7,217,0.2631532847881317
+Pattern Building,Mech_Pattern_Building,1,7,833,0.527214765548706
+Pattern Recognition,Mech_Pattern_Recognition,1,7,560,0.4829617440700531
+Modular Board,Mech_Modular_Board,13,10,1715,0.5873481631278992
+Network and Route Building,Mech_Network_and_Route_Building,3,9,587,0.7074702978134155
+Point to Point Movement,Mech_Point_to_Point_Movement,30,10,941,0.8253349661827087
+Melding and Splaying,Mech_Melding_and_Splaying,28,6,30,0.6237951517105103
+Negotiation,Mech_Negotiation,11,10,685,0.6447092890739441
+Trading,Mech_Trading,11,10,635,0.63353431224823
+Push Your Luck,Mech_Push_Your_Luck,20,10,936,0.9317430257797241
+Income,Mech_Income,2,9,96,0.4079996943473816
+Race,Mech_Race,6,9,247,0.7562810778617859
+Random Production,Mech_Random_Production,6,9,25,0.2578633427619934
+Variable Set-up,Mech_Variable_Set_up,32,10,364,0.7835310697555542
+Roll / Spin and Move,Mech_Roll___Spin_and_Move,11,10,1368,0.6003888845443726
+Variable Player Powers,Mech_Variable_Player_Powers,13,10,2736,0.6935318112373352
+Action Queue,Mech_Action_Queue,17,10,423,0.6405379772186279
+Bias,Mech_Bias,17,10,50,0.2080279290676117
+Grid Movement,Mech_Grid_Movement,4,10,1641,0.6094037294387817
+Lose a Turn,Mech_Lose_a_Turn,6,9,21,0.29893648624420166
+Programmed Movement,Mech_Programmed_Movement,17,10,39,0.3290705978870392
+Scenario / Mission / Campaign Game,Mech_Scenario___Mission___Campaign_Game,4,10,502,0.49173086881637573
+Voting,Mech_Voting,5,10,469,0.4472537636756897
+Events,Mech_Events,32,10,337,0.7635371088981628
+Paper-and-Pencil,Mech_Paper_and_Pencil,19,7,557,0.8544516563415527
+Player Elimination,Mech_Player_Elimination,11,10,730,0.5272738337516785
+Role Playing,Mech_Role_Playing,7,10,547,0.5208126902580261
+Movement Points,Mech_Movement_Points,4,10,514,0.5881577134132385
+Simulation,Mech_Simulation,4,10,2134,0.7422698140144348
+Variable Phase Order,Mech_Variable_Phase_Order,27,9,315,0.8844844698905945
+Area Movement,Mech_Area_Movement,13,10,1201,0.5113274455070496
+Commodity Speculation,Mech_Commodity_Speculation,3,9,259,0.46015074849128723
+Cooperative Game,Mech_Cooperative_Game,7,10,1572,0.7662535905838013
+Deduction,Mech_Deduction,5,10,1197,0.6751766800880432
+Sudden Death Ending,Mech_Sudden_Death_Ending,9,10,41,0.5240249633789062
+Connections,Mech_Connections,23,9,62,0.7434355020523071
+Highest-Lowest Scoring,Mech_Highest_Lowest_Scoring,29,9,25,0.6599663496017456
+Betting and Bluffing,Mech_Betting_and_Bluffing,5,10,1546,0.6732630133628845
+Memory,Mech_Memory,5,10,1014,0.48905110359191895
+Score-and-Reset Game,Mech_Score_and_Reset_Game,23,9,26,0.49690762162208557
+Layering,Mech_Layering,28,6,53,0.7440364360809326
+Map Addition,Mech_Map_Addition,21,10,52,0.5859188437461853
+Secret Unit Deployment,Mech_Secret_Unit_Deployment,24,10,592,0.9244320392608643
+Increase Value of Unchosen Resources,Mech_Increase_Value_of_Unchosen_Resources,2,9,41,0.3220149278640747
+Ratio / Combat Results Table,Mech_Ratio___Combat_Results_Table,4,10,308,0.5041266679763794
+Take That,Mech_Take_That,12,10,1141,0.4767851233482361
+Team-Based Game,Mech_Team_Based_Game,5,10,1036,0.5363537073135376
+Campaign / Battle Card Driven,Mech_Campaign___Battle_Card_Driven,30,10,561,0.6820703744888306
+Tech Trees / Tech Tracks,Mech_Tech_Trees___Tech_Tracks,25,9,58,0.8201084733009338
+Player Judge,Mech_Player_Judge,34,12,31,1.0
+Chit-Pull System,Mech_Chit_Pull_System,38,10,264,1.0
+Three Dimensional Movement,Mech_Three_Dimensional_Movement,8,6,56,0.4603392779827118
+Action Drafting,Mech_Action_Drafting,27,9,44,0.4321560561656952
+Minimap Resolution,Mech_Minimap_Resolution,24,10,35,0.2992244362831116
+Stat Check Resolution,Mech_Stat_Check_Resolution,21,10,36,0.5559369921684265
+Action Timer,Mech_Action_Timer,1,7,18,0.09977155923843384
+Pick-up and Deliver,Mech_Pick_up_and_Deliver,31,9,600,0.9825233221054077
+Map Deformation,Mech_Map_Deformation,21,10,21,0.42056000232696533
+Bingo,Mech_Bingo,19,7,41,0.3798471987247467
+Crayon Rail System,Mech_Crayon_Rail_System,31,9,23,0.3100723624229431
+Multiple Maps,Mech_Multiple_Maps,9,10,29,0.39231061935424805
+Hidden Roles,Mech_Hidden_Roles,5,10,95,0.366280734539032
+Line Drawing,Mech_Line_Drawing,19,7,164,0.5938117504119873
+Tug of War,Mech_Tug_of_War,9,10,30,0.46512895822525024
+Pattern Movement,Mech_Pattern_Movement,8,6,9,0.27558907866477966
+Static Capture,Mech_Static_Capture,8,6,25,0.41338369250297546
+Different Dice Movement,Mech_Different_Dice_Movement,18,10,10,0.37527766823768616
+Chaining,Mech_Chaining,23,9,31,0.5492265820503235
+Ladder Climbing,Mech_Ladder_Climbing,10,2,43,0.4161326587200165
+Predictive Bid,Mech_Predictive_Bid,10,2,15,0.2989058792591095
+Solo / Solitaire Game,Mech_Solo___Solitaire_Game,7,10,973,0.6021389961242676
+Line of Sight,Mech_Line_of_Sight,26,10,276,0.8631604909896851
+Critical Hits and Failures,Mech_Critical_Hits_and_Failures,18,10,50,0.7616866827011108
+Interrupts,Mech_Interrupts,18,10,25,0.6390095949172974
+Zone of Control,Mech_Zone_of_Control,4,10,276,0.4693765938282013
+Bribery,Mech_Bribery,14,10,19,0.36305341124534607
+End Game Bonuses,Mech_End_Game_Bonuses,2,9,179,0.5220997333526611
+Area-Impulse,Mech_Area_Impulse,22,3,107,0.9137109518051147
+Worker Placement,Mech_Worker_Placement,2,9,849,0.744469165802002
+Measurement Movement,Mech_Measurement_Movement,26,10,98,0.6467525362968445
+Map Reduction,Mech_Map_Reduction,28,6,35,0.5352643132209778
+Real-Time,Mech_Real_Time,1,7,803,0.5255730152130127
+Resource to Move,Mech_Resource_to_Move,6,9,30,0.3457377851009369
+Mancala,Mech_Mancala,15,4,37,0.4326663613319397
+Ownership,Mech_Ownership,3,9,46,0.358845055103302
+Kill Steal,Mech_Kill_Steal,22,3,15,0.38060760498046875
+Hidden Movement,Mech_Hidden_Movement,24,10,81,0.5052306652069092
+Track Movement,Mech_Track_Movement,6,9,90,0.56061190366745
+Deck Construction,Mech_Deck_Construction,21,10,49,0.5718209147453308
+Drafting,Mech_Drafting,12,10,2015,0.6145309805870056
+TableauBuilding,Mech_TableauBuilding,2,9,175,0.46441441774368286
+Prisoner's Dilemma,Mech_Prisoner_s_Dilemma,14,10,16,0.3626592755317688
+Hidden Victory Points,Mech_Hidden_Victory_Points,29,9,41,0.8098312020301819
+Movement Template,Mech_Movement_Template,26,10,30,0.3763011395931244
+Slide/Push,Mech_Slide_Push,8,6,22,0.3329494893550873
+Targeted Clues,Mech_Targeted_Clues,33,10,24,0.49870431423187256
+Command Cards,Mech_Command_Cards,9,10,27,0.4185393452644348
+Grid Coverage,Mech_Grid_Coverage,19,7,53,0.3129446804523468
+Relative Movement,Mech_Relative_Movement,15,5,13,0.255476176738739
+Action/Event,Mech_Action_Event,9,10,46,0.5863422155380249
+Card Play Conflict Resolution,Mech_Card_Play_Conflict_Resolution,14,10,99,0.7422266602516174
+"I Cut, You Choose",Mech_I_Cut__You_Choose,16,10,36,0.45588332414627075
+Die Icon Resolution,Mech_Die_Icon_Resolution,20,10,45,0.2890456020832062
+Elapsed Real Time Ending,Mech_Elapsed_Real_Time_Ending,7,10,38,0.18898890912532806
+Advantage Token,Mech_Advantage_Token,2,9,16,0.17883841693401337
+Storytelling,Mech_Storytelling,7,10,501,0.5308959484100342
+Catch the Leader,Mech_Catch_the_Leader,6,9,35,0.3064700961112976
+Roles with Asymmetric Information,Mech_Roles_with_Asymmetric_Information,5,10,32,0.2320493906736374
+Traitor Game,Mech_Traitor_Game,5,10,85,0.360262006521225
+Moving Multiple Units,Mech_Moving_Multiple_Units,25,9,16,0.536745011806488
+Semi-Cooperative Game,Mech_Semi_Cooperative_Game,37,10,56,1.0
+Communication Limits,Mech_Communication_Limits,33,10,123,0.9237998127937317
+Time Track,Mech_Time_Track,15,4,99,0.6877170205116272
+Speed Matching,Mech_Speed_Matching,1,7,29,0.16548186540603638
+Cube Tower,Mech_Cube_Tower,35,11,14,1.0
+Re-rolling and Locking,Mech_Re_rolling_and_Locking,20,10,66,0.4060978591442108
+Impulse Movement,Mech_Impulse_Movement,8,6,11,0.22158199548721313
+Loans,Mech_Loans,3,9,23,0.23856064677238464
+Delayed Purchase,Mech_Delayed_Purchase,25,9,17,0.44971200823783875
+"Deck, Bag, and Pool Building",Mech_Deck__Bag__and_Pool_Building,12,10,787,0.40644484758377075
+Move Through Deck,Mech_Move_Through_Deck,7,10,43,0.20332400500774384
+Single Loser Game,Mech_Single_Loser_Game,10,1,28,0.2734708786010742
+Matching,Mech_Matching,6,9,28,0.23604366183280945
+Induction,Mech_Induction,36,8,10,1.0
+Physical Removal,Mech_Physical_Removal,10,1,17,0.20055228471755981
+Narrative Choice / Paragraph,Mech_Narrative_Choice___Paragraph,7,10,40,0.24151138961315155
+Pieces as Map,Mech_Pieces_as_Map,8,6,19,0.28451013565063477
+Follow,Mech_Follow,27,9,44,0.5144715309143066
+Finale Ending,Mech_Finale_Ending,9,10,24,0.3931933641433716
+Order Counters,Mech_Order_Counters,18,10,9,0.39557740092277527
+Contracts,Mech_Contracts,2,9,137,0.42062732577323914
+Passed Action Token,Mech_Passed_Action_Token,22,3,5,0.2714483439922333
+King of the Hill,Mech_King_of_the_Hill,20,10,19,0.18589985370635986
+Action Retrieval,Mech_Action_Retrieval,16,10,62,0.6124919056892395
+Force Commitment,Mech_Force_Commitment,14,10,15,0.40860316157341003
+Rondel,Mech_Rondel,15,4,64,0.6003809571266174
+Automatic Resource Growth,Mech_Automatic_Resource_Growth,2,9,16,0.252477765083313
+Legacy Game,Mech_Legacy_Game,16,10,32,0.48353731632232666
+Dexterity,Mech_Dexterity,1,7,1105,0.5096916556358337
+Physical,Mech_Physical,39,10,459,1.0
